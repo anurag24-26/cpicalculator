@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>CPI Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>CPI Calculator</h1>
+        <label for="number_ofsubjects">Number of Subjects:</label>
+        <input type="number" id="number_ofsubjects" placeholder="Enter the number of subjects">
+        <button onclick="createInputs()">Create Inputs</button>
+        <div id="subjectInputs"></div>
+        <button onclick="calculateCPI()">Calculate CPI</button>
+        <div id="result"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
