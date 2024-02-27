@@ -1,0 +1,84 @@
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px; /* Round the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+input, button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 5px; /* Round the input and button */
+}
+
+input {
+    border-radius: 8px; /* Round the input fields */
+}
+
+button {
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    color: #ddd;
+    background-color: #ddd;
+}
+
+/* Style for the result table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    border-top-left-radius: 8px; /* Round the top-left corner of table header */
+    border-top-right-radius: 8px; /* Round the top-right corner of table header */
+}
+
+td {
+    border-bottom-left-radius: 8px; /* Round the bottom-left corner of table cells */
+    border-bottom-right-radius: 8px; /* Round the bottom-right corner of table cells */
+}
+
+/* Mobile-friendly styling */
+@media screen and (max-width: 480px) {
+    input, button {
+        width: auto;
+    }
+}
