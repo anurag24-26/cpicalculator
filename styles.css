@@ -1,4 +1,4 @@
- body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -20,10 +20,8 @@ h1 {
 }
 
 input, button {
-    width: 100%;
-    box-sizing: border-box;
     padding: 8px;
-    margin: 8px 0;
+    margin: 8px;
     border-radius: 5px; /* Round the input and button */
 }
 
@@ -74,11 +72,4 @@ th {
 td {
     border-bottom-left-radius: 8px; /* Round the bottom-left corner of table cells */
     border-bottom-right-radius: 8px; /* Round the bottom-right corner of table cells */
-}
-
-/* Mobile-friendly styling */
-@media screen and (max-width: 480px) {
-    input, button {
-        width: auto;
-    }
 }
