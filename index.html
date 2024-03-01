@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    
     <title>CPI Calculator</title>
 </head>
 <body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
     <div class="container">
         <h1>CPI Calculator</h1>
-        <label for="number_ofsubjects">Number of Subjects:</label>
-        <input type="number" id="number_ofsubjects" placeholder="Enter the number of subjects">
-        <button onclick="createInputs()">Create Inputs</button>
+        <div class="input-button-container">
+           Enter the number of subjects: <input type="number" id="number_ofsubjects" placeholder="Enter the number of subjects">
+            <button class="createInput" onclick="createInputs()"><img src="image-removebg-preview.png" height="25" width="30"></button>
+        </div>
         <div id="subjectInputs"></div>
-        <button onclick="calculateCPI()">Calculate CPI</button>
+        <button onclick="calculateCPI()"><img src="calci.png" height="30" width="30"></button>
         <div id="result"></div>
     </div>
+    
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="anuragtripathi" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting! Support me." data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
     <script src="app.js"></script>
 </body>
 </html>
