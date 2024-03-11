@@ -4,8 +4,10 @@ body {
   
   margin: 0;
   padding: 0;
-  background: rgb(34,193,195);
-  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  background: #314755;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #26a0da, #314755);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #26a0da, #314755); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     min-height:100vh;
     height:auto;
     overflow-y: scroll;
@@ -95,9 +97,10 @@ button {
 button:hover {
     
     border-radius: 40px 40px 0px 40px;
-    background: rgb(34,193,195);
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-   
+    background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     transition:0.5s all ease;
 }
 
@@ -160,9 +163,10 @@ td {
 button:hover {
     
     border-radius: 40px 40px 40px 40px;
-    background: rgb(34,193,195);
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-   
+    background: #06b370;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #4791aa, #82a3b1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #60a7be, #aebdc4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     transition:0.5s all ease;
 }
 .input-button-container {
