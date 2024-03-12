@@ -81,3 +81,12 @@ function calculateCPI() {
         alert("Please enter the number of subjects first.");
     }
 }
+// Show loader
+function showLoader() {
+  document.getElementById('loader').style.display = 'block';
+}
+
+// Hide loader
+function hideLoader() {
+  document.getElementById('loader').style.display = 'none';
+}
