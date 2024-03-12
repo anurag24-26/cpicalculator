@@ -140,6 +140,35 @@ td {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* semi-transparent white background */
+  z-index: 9999; /* ensures loader appears on top of other elements */
+  display: none; /* initially hidden */
+}
+
+/* Loader animation */
+#loader::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  border-top-color: #333;
+  animation: spin 1s linear infinite; /* Spin animation */
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .container {
