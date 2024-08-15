@@ -1,4 +1,4 @@
-let number_ofsubjects; // Declare number_ofsubjects as a global variable
+let number_ofsubjects; 
 
 function createInputs() {
     number_ofsubjects = parseInt(document.getElementById("number_ofsubjects").value);
@@ -27,10 +27,17 @@ function createInputs() {
             const gradeLabel = document.createElement("label");
             gradeLabel.textContent = `Grades for ${nameInput.value}:`;
 
-            const gradeInput = document.createElement("input");
-            gradeInput.type = "number";
-            gradeInput.placeholder = `Enter grades for ${nameInput.value}`;
-            gradeInput.id = `grades_${i}`;
+            const gradeDropdown = document.createElement("select");
+            gradeDropdown.id = `grades_${i}`;
+
+            // Add options to the dropdown
+            const gradeOptions = ["O", "A+", "A", "B+", "B", "C"];
+            for (const option of gradeOptions) {
+                const gradeOption = document.createElement("option");
+                gradeOption.value = option;
+                gradeOption.text = option;
+                gradeDropdown.appendChild(gradeOption);
+            }
 
             subjectInputs.appendChild(nameLabel);
             subjectInputs.appendChild(nameInput);
@@ -38,7 +45,7 @@ function createInputs() {
             subjectInputs.appendChild(creditsLabel);
             subjectInputs.appendChild(creditsInput);
             subjectInputs.appendChild(gradeLabel);
-            subjectInputs.appendChild(gradeInput);
+            subjectInputs.appendChild(gradeDropdown);
             subjectInputs.appendChild(document.createElement("hr")); // Add horizontal line
         }
     } else {
@@ -57,23 +64,23 @@ function calculateCPI() {
         for (let i = 1; i <= number_ofsubjects; i++) {
             const name = document.getElementById(`name_${i}`).value;
             const credits = parseFloat(document.getElementById(`credits_${i}`).value);
-            const grades = parseFloat(document.getElementById(`grades_${i}`).value);
+            const grades = document.getElementById(`grades_${i}`).value; // Use dropdown value
 
-            if (!isNaN(credits) && !isNaN(grades)) {
+            if (!isNaN(credits)) {
                 totalCredits += credits;
-                totalGrades += credits * grades;
+                totalGrades += credits * getNumericGrade(grades); // Convert grade to numeric value
 
                 // Append row to the table
                 resultTable += `<tr><td>${name}</td><td>${credits}</td><td>${grades}</td></tr>`;
             } else {
-                alert(`Please enter valid numeric values for credits and grades for ${name}.`);
+                alert(`Please enter valid numeric values for credits for ${name}.`);
                 return;
             }
         }
 
         const cpi = (totalGrades / totalCredits).toFixed(2);
 
-        // Append total CPI to the table
+    
         resultTable += `</table><br>Total CPI: ${cpi}`;
 
         document.getElementById("result").innerHTML = resultTable;
@@ -81,12 +88,17 @@ function calculateCPI() {
         alert("Please enter the number of subjects first.");
     }
 }
-// Show loader
-function showLoader() {
-  document.getElementById('loader').style.display = 'block';
-}
 
-// Hide loader
-function hideLoader() {
-  document.getElementById('loader').style.display = 'none';
+
+function getNumericGrade(grade) {
+    switch (grade) {
+        case "O": return 10;
+        case "A+": return 9;
+        case "A": return 8;
+        case "B+": return 7;
+        case "B": return 6;
+        case "C": return 5;
+    
+        default: return 0;
+    }
 }
