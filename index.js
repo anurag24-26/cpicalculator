@@ -1,4 +1,4 @@
-let number_ofsubjects; 
+let number_ofsubjects; // Declare number_ofsubjects as a global variable
 
 function createInputs() {
     number_ofsubjects = parseInt(document.getElementById("number_ofsubjects").value);
@@ -9,26 +9,29 @@ function createInputs() {
 
         for (let i = 1; i <= number_ofsubjects; i++) {
             const nameLabel = document.createElement("label");
-            nameLabel.textContent = `Subject ${i} Name:`;
+            nameLabel.textContent = `Subject ${i}`;
 
             const nameInput = document.createElement("input");
             nameInput.type = "text";
             nameInput.placeholder = `Enter name for Subject ${i}`;
             nameInput.id = `name_${i}`;
+            nameInput.style.width = "80%";
 
             const creditsLabel = document.createElement("label");
-            creditsLabel.textContent = `Credits for ${nameInput.value}:`;
+            creditsLabel.textContent = `Credits ${nameInput.value}:`;
 
             const creditsInput = document.createElement("input");
             creditsInput.type = "number";
             creditsInput.placeholder = `Enter credits for ${nameInput.value}`;
             creditsInput.id = `credits_${i}`;
+            creditsInput.style.maxWidth="30%"
 
             const gradeLabel = document.createElement("label");
-            gradeLabel.textContent = `Grades for ${nameInput.value}:`;
+            gradeLabel.textContent = `Grades ${nameInput.value}:`;
 
             const gradeDropdown = document.createElement("select");
             gradeDropdown.id = `grades_${i}`;
+            gradeDropdown.style.maxWidth="30%"
 
             // Add options to the dropdown
             const gradeOptions = ["O", "A+", "A", "B+", "B", "C"];
@@ -80,16 +83,17 @@ function calculateCPI() {
 
         const cpi = (totalGrades / totalCredits).toFixed(2);
 
-    
+        // Append total CPI to the table
         resultTable += `</table><br>Total CPI: ${cpi}`;
 
         document.getElementById("result").innerHTML = resultTable;
+        
     } else {
         alert("Please enter the number of subjects first.");
     }
 }
 
-
+// Function to convert grade to numeric value
 function getNumericGrade(grade) {
     switch (grade) {
         case "O": return 10;
