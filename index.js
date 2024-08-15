@@ -24,14 +24,14 @@ function createInputs() {
             creditsInput.type = "number";
             creditsInput.placeholder = `Enter credits for ${nameInput.value}`;
             creditsInput.id = `credits_${i}`;
-            creditsInput.style.maxWidth="30%"
+            creditsInput.style.maxWidth="20%"
 
             const gradeLabel = document.createElement("label");
             gradeLabel.textContent = `Grades ${nameInput.value}:`;
 
             const gradeDropdown = document.createElement("select");
             gradeDropdown.id = `grades_${i}`;
-            gradeDropdown.style.maxWidth="30%"
+            gradeDropdown.style.maxWidth="20%"
 
             // Add options to the dropdown
             const gradeOptions = ["O", "A+", "A", "B+", "B", "C"];
