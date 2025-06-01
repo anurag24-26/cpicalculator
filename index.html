@@ -8,8 +8,8 @@
   <!-- Primary Meta Tags -->
   <title>CPI Calculator - GLA University</title>
   <meta name="title" content="CPI Calculator - GLA University">
-  <meta name="description" content="Easily calculate your CPI (Cumulative Performance Index) using this simple, user-friendly tool designed for students of GLA University.">
-  <meta name="keywords" content="CPI Calculator, GLA University, CGPA, GPA, Student Tools, Academic Calculator">
+  <meta name="description" content="Instantly calculate your Cumulative Performance Index (CPI) with this user-friendly tool designed for GLA University students.">
+  <meta name="keywords" content="CPI Calculator, GLA University, CGPA, GPA, Academic Tool">
   <meta name="author" content="Anurag Tripathi" />
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://anurag24-26.github.io/cpicalculator/" />
@@ -18,52 +18,77 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://anurag24-26.github.io/cpicalculator/" />
   <meta property="og:title" content="CPI Calculator - GLA University" />
-  <meta property="og:description" content="Calculate your CPI with ease. Designed especially for GLA University students." />
+  <meta property="og:description" content="Calculate your CPI easily with this optimized tool designed for students." />
   <meta property="og:image" content="https://anurag24-26.github.io/cpicalculator/preview.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://anurag24-26.github.io/cpicalculator/" />
   <meta name="twitter:title" content="CPI Calculator - GLA University" />
-  <meta name="twitter:description" content="Calculate your CPI with ease. Designed especially for GLA University students." />
+  <meta name="twitter:description" content="Calculate your CPI easily. Designed especially for GLA University students." />
   <meta name="twitter:image" content="https://anurag24-26.github.io/cpicalculator/preview.png" />
 
-  <!-- Favicon and CSS -->
+  <!-- SEO Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CPI Calculator - GLA University",
+    "url": "https://anurag24-26.github.io/cpicalculator/"
+  }
+  </script>
+
+  <!-- Favicon & CSS -->
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="#Home">Home</a>
-        <a href="#">About</a>
-        <a href="#Contact">Contact</a>
-    </div>
-    <section id="Home">
-   
-<div class="container">
-        <h1>CPI Calculator</h1>
-        <div class="input-button-container">
-            <label class="numberofsubjects" for="number_ofsubjects">Enter the number of subjects:</label>
-            <input type="number" id="number_ofsubjects" placeholder="Enter">
-            <button class="createInput" onclick="createInputs()">Insert Subjects</button>
-        </div>
-        <div id="subjectInputs"></div>
-        <button onclick="calculateCPI()">Calculate</button>
-        <div id="result"></div>
-    </div></section>
-<section id="About">
-   
-</section>
-<section id="Contact">
-    
-</section>
+  <nav class="navbar">
+      <a href="#Home">Home</a>
+      <a href="#About">About</a>
+      <a href="#Contact">Contact</a>
+  </nav>
 
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-        data-id="anuragtripathi" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting! Support me."
-        data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-    <script src="index.js"></script>
-    
+  <section id="Home">
+      <div class="container">
+          <h1>CPI Calculator</h1>
+          <div class="input-button-container">
+              <label for="number_ofsubjects">Enter the number of subjects:</label>
+              <input type="number" id="number_ofsubjects" placeholder="Enter">
+              <button class="createInput" onclick="createInputs()">Insert Subjects</button>
+          </div>
+          <div id="subjectInputs"></div>
+          <button onclick="calculateCPI()">Calculate</button>
+          <div id="result"></div>
+      </div>
+  </section>
+
+  <section id="About">
+      <div class="container">
+          <h2>About This Tool</h2>
+          <p>This CPI Calculator is designed for GLA University students to easily compute their cumulative performance index.</p>
+      </div>
+  </section>
+
+  <section id="Contact">
+      <div class="container">
+          <h2>Contact</h2>
+          <p>Have questions? Reach out via email or GitHub.</p>
+      </div>
+  </section>
+
+  <footer>
+      <p>&copy; 2025 CPI Calculator by Anurag Tripathi</p>
+  </footer>
+
+  <!-- Buy Me a Coffee Widget -->
+  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="anuragtripathi" data-description="Support me on Buy Me a Coffee!" data-message="Thank you for visiting!"
+      data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+  <!-- JavaScript Logic -->
+  <script src="index.js"></script>
+
 </body>
-
 </html>
