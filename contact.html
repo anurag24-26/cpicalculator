@@ -3,67 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact – CPI Calculator</title>
-  <link rel="stylesheet" href="styles.css" />
-  
-  <!-- Font Awesome CDN for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <style>
-    .contact-section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      font-size: 18px;
-    }
-    .contact-item i {
-      margin-right: 12px;
-      color: #333;
-    }
-    a {
-      text-decoration: none;
-      color: #0077cc;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <title>About – CPI Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="favicon.png" />
 </head>
+<body class="bg-gradient-to-r from-yellow-500 to-blue-500 min-h-screen flex flex-col">
 
-<body>
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+  <nav class="bg-black/30 text-white py-4 sticky top-0 z-50 shadow">
+    <div class="container mx-auto flex justify-center gap-8 font-semibold">
+      <a href="index.html" class="hover:text-gray-200">Home</a>
+      <a href="about.html" class="hover:text-gray-200">About</a>
+      <a href="contact.html" class="hover:text-gray-200">Contact</a>
+    </div>
   </nav>
 
-  <main class="contact-section">
-    <h2>Contact Me</h2>
-    <p>If you have any questions, suggestions, or just want to connect, feel free to reach out through any of the following:</p>
-
-    <div class="contact-item">
-      <i class="fas fa-envelope"></i>
-      <a href="mailto:anuragtripathi2602@gmail.com">anuragtripathi2602@gmail.com</a>
-    </div>
-
-    <div class="contact-item">
-      <i class="fab fa-github"></i>
-      <a href="https://github.com/anurag24-26" target="_blank">github.com/anurag24-26</a>
-    </div>
-
-    <div class="contact-item">
-      <i class="fas fa-map-marker-alt"></i>
-      <span>Mathura, Uttar Pradesh, India</span>
+  <main class="flex-1 flex items-center justify-center px-4 py-12">
+    <div class="bg-white/90 max-w-2xl p-8 rounded-xl shadow-lg text-gray-800 text-center">
+      <h1 class="text-3xl font-bold mb-4 underline">About This Tool</h1>
+      <p class="text-lg leading-relaxed">
+        The <strong>CPI Calculator</strong> is a simple and efficient tool built for <span class="font-semibold">GLA University</span> students to help them calculate their Cumulative Performance Index (CPI) easily and quickly. Whether you're reviewing your semester results or planning your academic goals, this tool provides instant calculations.
+      </p>
+      <p class="mt-4 text-md text-gray-700">Developed by <strong>Anurag Tripathi</strong> with ❤️ for the student community.</p>
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 CPI Calculator by Anurag Tripathi</p>
+  <footer class="bg-black/30 text-white text-center py-4 text-sm">
+    &copy; 2025 CPI Calculator by Anurag Tripathi
   </footer>
 </body>
 </html>
