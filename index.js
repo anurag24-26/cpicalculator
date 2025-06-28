@@ -8,30 +8,36 @@ function createInputs() {
         subjectInputs.innerHTML = ""; // Clear previous inputs
 
         for (let i = 1; i <= number_ofsubjects; i++) {
+            const wrapper = document.createElement("div");
+            wrapper.className = "mb-6 p-4 bg-white rounded-lg shadow";
+
             const nameLabel = document.createElement("label");
             nameLabel.textContent = `Subject ${i}`;
+            nameLabel.className = "block mb-1 font-semibold text-gray-700";
 
             const nameInput = document.createElement("input");
             nameInput.type = "text";
             nameInput.placeholder = `Enter name for Subject ${i}`;
             nameInput.id = `name_${i}`;
-            nameInput.style.width = "80%";
+            nameInput.className = "w-full mb-3 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400";
 
             const creditsLabel = document.createElement("label");
-            creditsLabel.textContent = `Credits ${nameInput.value}:`;
+            creditsLabel.textContent = `Credits:`;
+            creditsLabel.className = "block mt-2 font-medium text-gray-700";
 
             const creditsInput = document.createElement("input");
             creditsInput.type = "number";
-            creditsInput.placeholder = `Enter credits for ${nameInput.value}`;
+            creditsInput.placeholder = `Enter credits`;
             creditsInput.id = `credits_${i}`;
-            creditsInput.style.maxWidth="20%"
+            creditsInput.className = "w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400";
 
             const gradeLabel = document.createElement("label");
-            gradeLabel.textContent = `Grades ${nameInput.value}:`;
+            gradeLabel.textContent = `Grade:`;
+            gradeLabel.className = "block mt-2 font-medium text-gray-700";
 
             const gradeDropdown = document.createElement("select");
             gradeDropdown.id = `grades_${i}`;
-            gradeDropdown.style.maxWidth="20%"
+            gradeDropdown.className = "w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400";
 
             // Add options to the dropdown
             const gradeOptions = ["O", "A+", "A", "B+", "B", "C"];
@@ -42,14 +48,14 @@ function createInputs() {
                 gradeDropdown.appendChild(gradeOption);
             }
 
-            subjectInputs.appendChild(nameLabel);
-            subjectInputs.appendChild(nameInput);
-            subjectInputs.appendChild(document.createElement("br"));
-            subjectInputs.appendChild(creditsLabel);
-            subjectInputs.appendChild(creditsInput);
-            subjectInputs.appendChild(gradeLabel);
-            subjectInputs.appendChild(gradeDropdown);
-            subjectInputs.appendChild(document.createElement("hr")); // Add horizontal line
+            wrapper.appendChild(nameLabel);
+            wrapper.appendChild(nameInput);
+            wrapper.appendChild(creditsLabel);
+            wrapper.appendChild(creditsInput);
+            wrapper.appendChild(gradeLabel);
+            wrapper.appendChild(gradeDropdown);
+
+            subjectInputs.appendChild(wrapper);
         }
     } else {
         alert("Please enter a valid number of subjects.");
@@ -62,38 +68,58 @@ function calculateCPI() {
         let totalGrades = 0;
 
         // Create a table
-        let resultTable = "<table border='1'><tr><th>Subject Name</th><th>Credits</th><th>Grades</th></tr>";
+        let resultTable = `
+            <div class="overflow-x-auto mt-6">
+            <table class="w-full text-sm text-left text-gray-800 border border-gray-300 rounded-lg">
+              <thead class="bg-blue-600 text-white">
+                <tr>
+                  <th class="px-4 py-2">Subject Name</th>
+                  <th class="px-4 py-2">Credits</th>
+                  <th class="px-4 py-2">Grades</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
 
         for (let i = 1; i <= number_ofsubjects; i++) {
             const name = document.getElementById(`name_${i}`).value;
             const credits = parseFloat(document.getElementById(`credits_${i}`).value);
-            const grades = document.getElementById(`grades_${i}`).value; // Use dropdown value
+            const grades = document.getElementById(`grades_${i}`).value;
 
             if (!isNaN(credits)) {
                 totalCredits += credits;
-                totalGrades += credits * getNumericGrade(grades); // Convert grade to numeric value
+                totalGrades += credits * getNumericGrade(grades);
 
-                // Append row to the table
-                resultTable += `<tr><td>${name}</td><td>${credits}</td><td>${grades}</td></tr>`;
+                resultTable += `
+                  <tr class="bg-white border-b">
+                    <td class="px-4 py-2">${name}</td>
+                    <td class="px-4 py-2">${credits}</td>
+                    <td class="px-4 py-2">${grades}</td>
+                  </tr>
+                `;
             } else {
-                alert(`Please enter valid numeric values for credits for ${name}.`);
+                alert(`Please enter valid numeric values for credits for ${name || `Subject ${i}`}.`);
                 return;
             }
         }
 
         const cpi = (totalGrades / totalCredits).toFixed(2);
 
-        // Append total CPI to the table
-        resultTable += `</table><br>Total CPI: ${cpi}`;
+        resultTable += `
+              </tbody>
+            </table>
+            <div class="mt-4 text-xl font-bold text-gray-900">
+              Total CPI: <span class="text-blue-700">${cpi}</span>
+            </div>
+          </div>
+        `;
 
         document.getElementById("result").innerHTML = resultTable;
-        
     } else {
         alert("Please enter the number of subjects first.");
     }
 }
 
-// Function to convert grade to numeric value
 function getNumericGrade(grade) {
     switch (grade) {
         case "O": return 10;
@@ -102,7 +128,6 @@ function getNumericGrade(grade) {
         case "B+": return 7;
         case "B": return 6;
         case "C": return 5;
-    
         default: return 0;
     }
 }
