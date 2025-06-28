@@ -4,22 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About – CPI Calculator</title>
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="favicon.png" />
 </head>
-<body>
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<body class="bg-gradient-to-r from-yellow-500 to-blue-500 min-h-screen flex flex-col">
+
+  <nav class="bg-black/30 text-white py-4 sticky top-0 z-50 shadow">
+    <div class="container mx-auto flex justify-center gap-8 font-semibold">
+      <a href="index.html" class="hover:text-gray-200">Home</a>
+      <a href="about.html" class="hover:text-gray-200">About</a>
+      <a href="contact.html" class="hover:text-gray-200">Contact</a>
+    </div>
   </nav>
 
-  <main class="container">
-    <h2>About This Tool</h2>
-    <p>This CPI Calculator is built for students of GLA University and other engineering colleges. It simplifies the process of calculating your cumulative performance index using your subject grades and credits. Designed to be fast, accurate, and mobile-friendly.</p>
+  <main class="flex-1 flex items-center justify-center px-4 py-12">
+    <div class="bg-white/90 max-w-2xl p-8 rounded-xl shadow-lg text-gray-800 text-center">
+      <h1 class="text-3xl font-bold mb-4 underline">About This Tool</h1>
+      <p class="text-lg leading-relaxed">
+        The <strong>CPI Calculator</strong> is a simple and efficient tool built for <span class="font-semibold">GLA University</span> students to help them calculate their Cumulative Performance Index (CPI) easily and quickly. Whether you're reviewing your semester results or planning your academic goals, this tool provides instant calculations.
+      </p>
+      <p class="mt-4 text-md text-gray-700">Developed by <strong>Anurag Tripathi</strong> with ❤️ for the student community.</p>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 CPI Calculator by Anurag Tripathi</p>
+  <footer class="bg-black/30 text-white text-center py-4 text-sm">
+    &copy; 2025 CPI Calculator by Anurag Tripathi
   </footer>
 </body>
 </html>
