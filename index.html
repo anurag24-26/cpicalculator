@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
   <title>CPI Calculator – GLA University</title>
   <meta name="title" content="CPI Calculator – GLA University">
   <meta name="description" content="Instantly calculate your Cumulative Performance Index (CPI) with this user-friendly tool designed for GLA University students.">
@@ -43,37 +42,49 @@
   }
   </script>
 
-  <!-- Favicon and Styles -->
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<body class="bg-gradient-to-r from-yellow-500 to-blue-500 min-h-screen flex flex-col font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-black/30 text-white py-4 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-center gap-8 font-semibold">
+      <a href="index.html" class="hover:text-gray-200">Home</a>
+      <a href="about.html" class="hover:text-gray-200">About</a>
+      <a href="contact.html" class="hover:text-gray-200">Contact</a>
+    </div>
   </nav>
 
-  <main id="Home">
-    <div class="container">
-      <h1>CPI Calculator</h1>
-      <div class="input-button-container">
-        <label for="number_ofsubjects">Enter the number of subjects:</label>
-        <input type="number" id="number_ofsubjects" placeholder="Enter number">
-        <button class="createInput" onclick="createInputs()">Insert Subjects</button>
+  <!-- Main -->
+  <main class="flex-1 container mx-auto px-4 py-10">
+    <div class="bg-white/80 shadow-lg rounded-xl p-8 max-w-2xl mx-auto text-center">
+      <h1 class="text-3xl font-extrabold text-gray-800 mb-6 underline">CPI Calculator</h1>
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+        <label for="number_ofsubjects" class="text-lg font-medium text-gray-700">Enter the number of subjects:</label>
+        <input type="number" id="number_ofsubjects" placeholder="e.g., 6" class="w-full md:w-1/3 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <button onclick="createInputs()" class="bg-gradient-to-r from-cyan-600 to-blue-500 text-white px-4 py-2 rounded-full hover:scale-105 transition">Insert Subjects</button>
       </div>
-      <div id="subjectInputs"></div>
-      <button onclick="calculateCPI()">Calculate</button>
-      <div id="result"></div>
+
+      <div id="subjectInputs" class="space-y-4 text-left text-sm text-gray-700"></div>
+
+      <button onclick="calculateCPI()" class="mt-6 bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">Calculate</button>
+
+      <div id="result" class="mt-6 text-lg font-semibold text-gray-800"></div>
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 CPI Calculator by Anurag Tripathi</p>
+  <!-- Footer -->
+  <footer class="bg-black/30 text-white text-center py-4 text-sm">
+    &copy; 2025 CPI Calculator by Anurag Tripathi
   </footer>
 
-  <!-- Buy Me a Coffee -->
+  <!-- Buy Me a Coffee Widget -->
   <script data-name="BMC-Widget" data-cfasync="false"
     src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
     data-id="anuragtripathi"
@@ -82,9 +93,10 @@
     data-color="#FF813F"
     data-position="Right"
     data-x_margin="18"
-    data-y_margin="18"></script>
+    data-y_margin="18">
+  </script>
 
-  <!-- JS Logic -->
+  <!-- Logic -->
   <script src="index.js"></script>
 </body>
 </html>
