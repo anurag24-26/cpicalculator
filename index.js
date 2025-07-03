@@ -1,6 +1,5 @@
 
-  <!-- CPI Calculator Logic -->
-  <script>
+
     let number_ofsubjects; // Declare number_ofsubjects as a global variable
 
     function createInputs() {
