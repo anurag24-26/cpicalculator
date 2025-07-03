@@ -1,34 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About– CPI Calculator</title>
+  <title>About – CPI Calculator</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
   <link rel="icon" type="image/png" href="favicon.png" />
 </head>
-<body class="bg-gradient-to-r from-yellow-500 to-blue-500 min-h-screen flex flex-col">
+<body class="bg-gradient-to-r from-yellow-500 to-blue-500 dark:from-gray-900 dark:to-gray-800 min-h-screen flex flex-col transition-colors duration-300">
 
-  <nav class="bg-black/30 text-white py-4 sticky top-0 z-50 shadow">
-    <div class="container mx-auto flex justify-center gap-8 font-semibold">
-      <a href="index.html" class="hover:text-gray-200">Home</a>
-      <a href="about.html" class="hover:text-gray-200">About</a>
-      <a href="contact.html" class="hover:text-gray-200">Contact</a>
+  <!-- Navbar -->
+  <nav class="bg-black/30 dark:bg-gray-900/60 text-white py-4 sticky top-0 z-50 shadow">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="flex gap-8 font-semibold">
+        <a href="index.html" class="hover:text-gray-200">Home</a>
+        <a href="about.html" class="hover:text-gray-200">About</a>
+        <a href="contact.html" class="hover:text-gray-200">Contact</a>
+      </div>
+      <!-- Dark Mode Toggle -->
+      <button id="dark-toggle" aria-label="Toggle dark mode"
+        class="p-2 rounded-full bg-white/20 dark:bg-gray-700 hover:bg-white/40 dark:hover:bg-gray-600 transition">
+        <svg id="sun" class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-8.66l-.71.71M4.05 19.07l-.71-.71M21 12h-1M4 12H3m16.95 7.07l-.71-.71M6.34 6.34l-.71-.71"/></svg>
+        <svg id="moon" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
+      </button>
     </div>
   </nav>
 
   <main class="flex-1 flex items-center justify-center px-4 py-12">
-    <div class="bg-white/90 max-w-2xl p-8 rounded-xl shadow-lg text-gray-800 text-center">
-      <h1 class="text-3xl font-bold mb-4 underline">About This Tool</h1>
+    <div class="bg-white/90 dark:bg-gray-900/80 max-w-2xl p-8 rounded-xl shadow-lg text-gray-800 dark:text-gray-100 text-center transition-colors duration-300">
+      <h1 class="text-3xl font-bold mb-4 underline decoration-blue-600 dark:decoration-blue-400">About This Tool</h1>
       <p class="text-lg leading-relaxed">
         The <strong>CPI Calculator</strong> is a simple and efficient tool built for <span class="font-semibold">GLA University</span> students to help them calculate their Cumulative Performance Index (CPI) easily and quickly. Whether you're reviewing your semester results or planning your academic goals, this tool provides instant calculations.
       </p>
-      <p class="mt-4 text-md text-gray-700">Developed by <strong>Anurag Tripathi</strong> with ❤️ for the student community.</p>
+      <p class="mt-4 text-md text-gray-700 dark:text-gray-300">Developed by <strong>Anurag Tripathi</strong> with <span class="text-pink-500 dark:text-pink-400">❤️</span> for the student community.</p>
     </div>
   </main>
 
-  <footer class="bg-black/30 text-white text-center py-4 text-sm">
+  <footer class="bg-black/30 dark:bg-gray-900/60 text-white text-center py-4 text-sm">
     &copy; 2025 CPI Calculator by Anurag Tripathi
   </footer>
+
+  <!-- Dark mode toggle logic (persistent) -->
+  <script>
+    (function() {
+      function setInitialMode() {
+        const userPref = localStorage.getItem('theme');
+        if (userPref === 'dark' || (!userPref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+      function toggleDarkMode() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        setInitialMode();
+        const toggleBtn = document.getElementById('dark-toggle');
+        if (toggleBtn) toggleBtn.addEventListener('click', toggleDarkMode);
+      });
+    })();
+  </script>
 </body>
 </html>
