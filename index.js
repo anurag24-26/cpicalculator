@@ -128,13 +128,3 @@ function calculateCPI() {
     </div>
   `;
 }
-
-// Dark mode toggle logic (refined)
-window.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('dark-toggle');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
-  }
-});
