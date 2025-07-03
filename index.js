@@ -129,12 +129,30 @@ function calculateCPI() {
   `;
 }
 
-// Dark mode toggle logic (refined)
-window.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('dark-toggle');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
+// Robust dark mode logic with persistence and initial state
+(function() {
+  // Set initial mode from localStorage or system preference
+  function setInitialMode() {
+    const userPref = localStorage.getItem('theme');
+    if (userPref === 'dark' || (!userPref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }
-});
+
+  // Toggle dark mode and persist
+  function toggleDarkMode() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  // Wait for DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    setInitialMode();
+    const toggleBtn = document.getElementById('dark-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', toggleDarkMode);
+    }
+  });
+})();
