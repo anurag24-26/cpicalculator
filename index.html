@@ -1,120 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CPI Calculator – GLA University</title>
-  <meta name="description" content="Instantly calculate your CPI. Designed for GLA University students." />
+  <meta name="description" content="Instantly calculate your Cumulative Performance Index (CPI) with this user-friendly tool designed for GLA University students.">
+  <meta name="keywords" content="CPI Calculator, CGPA, GPA, CPI Tool, GLA University">
+  <meta name="author" content="Anurag Tripathi">
   <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Enable dark mode toggle via class
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <style>
+    /* Custom glassmorphism effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+    }
+    /* Neumorphism effect for buttons */
+    .neumorph {
+      box-shadow: 6px 6px 16px #d1d9e6, -6px -6px 16px #ffffff;
+    }
+    .neumorph:active {
+      box-shadow: inset 2px 2px 6px #d1d9e6, inset -2px -2px 6px #ffffff;
+    }
+  </style>
 </head>
+<body class="bg-gradient-to-br from-blue-400 via-purple-300 to-pink-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen flex flex-col font-sans transition-colors duration-500">
 
-<body class="bg-gradient-to-br from-purple-500 via-pink-400 to-yellow-300 min-h-screen font-sans transition-colors duration-300" id="theme">
   <!-- Navbar -->
-  <nav class="backdrop-blur-md bg-white/10 text-white py-4 px-6 shadow-md sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold tracking-wide">CPI Calculator</h1>
-      <div class="flex gap-4">
-        <a href="index.html" class="hover:text-yellow-200 transition">Home</a>
-        <a href="about.html" class="hover:text-yellow-200 transition">About</a>
-        <a href="contact.html" class="hover:text-yellow-200 transition">Contact</a>
-        <button onclick="toggleDark()" class="ml-4 bg-white/20 rounded-full px-3 py-1 text-xs hover:bg-white/30">Toggle Mode</button>
+  <nav class="bg-white/20 dark:bg-gray-900/40 glass text-gray-900 dark:text-white py-4 shadow-md sticky top-0 z-50 transition">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="text-xl font-bold tracking-wide">CPI Calculator</div>
+      <div class="flex gap-6 font-semibold">
+        <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+        <a href="about.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+        <a href="contact.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
       </div>
+      <!-- Dark Mode Toggle -->
+      <button id="dark-toggle" aria-label="Toggle dark mode"
+        class="ml-4 p-2 rounded-full glass hover:bg-white/40 dark:hover:bg-gray-700 transition">
+        <svg id="sun" class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 3v1m0 16v1m8.66-8.66l-.71.71M4.05 19.07l-.71-.71M21 12h-1M4 12H3m16.95 7.07l-.71-.71M6.34 6.34l-.71-.71" />
+          <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" /></svg>
+        <svg id="moon" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
+      </button>
     </div>
   </nav>
 
-  <!-- Main Calculator Card -->
-  <main class="flex-1 px-4 py-10">
-    <div class="backdrop-blur-xl bg-white/30 shadow-2xl rounded-3xl p-8 max-w-2xl mx-auto">
-      <h2 class="text-4xl font-bold text-center text-white drop-shadow mb-8">CPI Calculator</h2>
-
-      <div class="space-y-4">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <label for="number_ofsubjects" class="text-white font-medium">Number of Subjects:</label>
-          <input type="number" id="number_ofsubjects" placeholder="e.g. 6"
-            class="w-full sm:w-1/2 p-2 rounded-xl shadow-inner bg-white/70 text-gray-800 focus:outline-none" />
-          <button onclick="createInputs()"
-            class="bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl px-5 py-2 transition-all">Insert</button>
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col items-center justify-center px-2 py-8">
+    <!-- Calculator Card -->
+    <section class="glass max-w-xl w-full mx-auto p-8 mt-8 mb-8 shadow-2xl rounded-3xl transition-all duration-300">
+      <h1 class="text-4xl font-extrabold text-gray-800 dark:text-white mb-6 tracking-tight">CPI Calculator</h1>
+      <form id="cpiForm" class="space-y-6">
+        <div class="flex flex-col md:flex-row items-center gap-4">
+          <label for="number_ofsubjects" class="text-lg font-medium text-gray-700 dark:text-gray-200">Number of subjects:</label>
+          <input type="number" id="number_ofsubjects" min="1" max="20" placeholder="e.g., 6"
+            class="w-full md:w-1/3 p-3 rounded-xl border-none glass focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition" />
+          <button type="button" onclick="createInputs()"
+            class="neumorph bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-xl font-semibold transition-transform duration-200 hover:scale-105 active:scale-95 shadow-lg">
+            Insert Subjects
+          </button>
         </div>
-
-        <div id="subjectInputs" class="mt-6 space-y-4"></div>
-
-        <button onclick="calculateCPI()"
-          class="w-full bg-green-600 hover:bg-green-700 text-white rounded-xl px-6 py-3 font-semibold">Calculate CPI</button>
-
-        <div id="result" class="mt-6 text-white text-xl font-semibold text-center"></div>
-      </div>
-    </div>
-
-    <!-- AI Comparison Section -->
-    <section class="mt-20 max-w-5xl mx-auto">
-      <h3 class="text-3xl text-center font-bold text-white mb-10 underline">Compare AI Models</h3>
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Perplexity -->
-        <div class="bg-white/30 backdrop-blur-md rounded-2xl p-6 text-white shadow-lg">
-          <h4 class="text-2xl font-bold mb-2">Perplexity AI</h4>
-          <p><strong>Provider:</strong> Independent using OpenAI/Claude</p>
-          <p><strong>Internet Access:</strong> ✅ Real-time search</p>
-          <p><strong>Strengths:</strong> Citations, up-to-date info, speed</p>
-          <p><strong>Limitations:</strong> Lacks tool integration, no memory</p>
-          <p><strong>Best Use:</strong> Factual queries, academic research</p>
-        </div>
-
-        <!-- Gemini -->
-        <div class="bg-white/30 backdrop-blur-md rounded-2xl p-6 text-white shadow-lg">
-          <h4 class="text-2xl font-bold mb-2">Gemini (Google)</h4>
-          <p><strong>Provider:</strong> Google DeepMind</p>
-          <p><strong>Internet Access:</strong> ✅ Real-time Google Search</p>
-          <p><strong>Strengths:</strong> Web + Docs integration, vision</p>
-          <p><strong>Limitations:</strong> Not as flexible with dev tools</p>
-          <p><strong>Best Use:</strong> Document understanding, summaries</p>
-        </div>
-      </div>
+        <div id="subjectInputs" class="space-y-4 text-left text-sm text-gray-700 dark:text-gray-200"></div>
+        <button type="button" onclick="calculateCPI()"
+          class="neumorph bg-green-500 hover:bg-green-600 text-white px-8 py-2 rounded-xl font-bold text-lg transition-transform duration-200 hover:scale-105 active:scale-95 shadow-lg mt-4">
+          Calculate
+        </button>
+        <div id="result" class="mt-6 text-xl font-semibold text-gray-800 dark:text-white"></div>
+      </form>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="text-white text-center mt-10 py-4 bg-black/40 backdrop-blur-sm">
+  <footer class="bg-white/20 dark:bg-gray-900/40 glass text-gray-900 dark:text-white text-center py-4 text-sm mt-auto">
     &copy; 2025 CPI Calculator by Anurag Tripathi
   </footer>
 
+  <!-- Buy Me a Coffee Widget -->
+  <script data-name="BMC-Widget" data-cfasync="false"
+    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="anuragtripathi"
+    data-description="Support me on Buy Me a Coffee!"
+    data-message="Thank you for visiting!"
+    data-color="#FF813F"
+    data-position="Right"
+    data-x_margin="18"
+    data-y_margin="18">
+  </script>
+
+  <!-- Logic for CPI Calculator (reuse your index.js or inline as needed) -->
+  <script src="index.js"></script>
   <script>
-    function createInputs() {
-      const num = parseInt(document.getElementById('number_ofsubjects').value);
-      const container = document.getElementById('subjectInputs');
-      container.innerHTML = '';
-      for (let i = 1; i <= num; i++) {
-        container.innerHTML += `
-          <div class="flex flex-col md:flex-row items-center gap-4">
-            <label class="text-white">Subject ${i} SPI:</label>
-            <input type="number" step="0.01" class="p-2 rounded w-full md:w-1/3" id="spi${i}" />
-            <label class="text-white">Credits:</label>
-            <input type="number" class="p-2 rounded w-full md:w-1/3" id="credit${i}" />
-          </div>`;
-      }
-    }
-
-    function calculateCPI() {
-      const num = parseInt(document.getElementById('number_ofsubjects').value);
-      let totalCredits = 0, weightedSum = 0;
-      for (let i = 1; i <= num; i++) {
-        const spi = parseFloat(document.getElementById(`spi${i}`).value);
-        const credit = parseFloat(document.getElementById(`credit${i}`).value);
-        if (!isNaN(spi) && !isNaN(credit)) {
-          totalCredits += credit;
-          weightedSum += spi * credit;
-        }
-      }
-      const cpi = (weightedSum / totalCredits).toFixed(2);
-      document.getElementById('result').innerText = `Your CPI is: ${cpi}`;
-    }
-
-    function toggleDark() {
-      document.body.classList.toggle('bg-gray-900');
-      document.body.classList.toggle('text-white');
-    }
+    // Dark mode toggle logic
+    const toggle = document.getElementById('dark-toggle');
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
   </script>
 </body>
-
 </html>
