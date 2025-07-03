@@ -1,49 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact – CPI Calculator</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<body class="bg-gradient-to-r from-yellow-500 to-blue-500 min-h-screen flex flex-col">
+<body class="bg-gradient-to-r from-yellow-500 to-blue-500 dark:from-gray-900 dark:to-gray-800 min-h-screen flex flex-col transition-colors duration-300">
 
-  <nav class="bg-black/30 text-white py-4 sticky top-0 z-50 shadow">
-    <div class="container mx-auto flex justify-center gap-8 font-semibold">
-      <a href="index.html" class="hover:text-gray-200">Home</a>
-      <a href="about.html" class="hover:text-gray-200">About</a>
-      <a href="contact.html" class="hover:text-gray-200">Contact</a>
+  <!-- Navbar -->
+  <nav class="bg-black/30 dark:bg-gray-900/60 text-white py-4 sticky top-0 z-50 shadow">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="flex gap-8 font-semibold">
+        <a href="index.html" class="hover:text-gray-200">Home</a>
+        <a href="about.html" class="hover:text-gray-200">About</a>
+        <a href="contact.html" class="hover:text-gray-200">Contact</a>
+      </div>
+      <!-- Dark Mode Toggle -->
+      <button id="dark-toggle" aria-label="Toggle dark mode"
+        class="p-2 rounded-full bg-white/20 dark:bg-gray-700 hover:bg-white/40 dark:hover:bg-gray-600 transition">
+        <svg id="sun" class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-8.66l-.71.71M4.05 19.07l-.71-.71M21 12h-1M4 12H3m16.95 7.07l-.71-.71M6.34 6.34l-.71-.71"/></svg>
+        <svg id="moon" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
+      </button>
     </div>
   </nav>
 
   <main class="flex-1 flex items-center justify-center px-4 py-12">
-    <div class="bg-white/90 max-w-xl p-8 rounded-xl shadow-lg text-gray-800 text-center">
-      <h1 class="text-3xl font-bold mb-6 underline">Contact Me</h1>
-      <p class="mb-6 text-lg">Feel free to connect through any of the platforms below:</p>
-
-      <div class="space-y-4 text-left text-gray-700">
+    <div class="bg-white/90 dark:bg-gray-900/80 max-w-xl w-full p-8 rounded-xl shadow-2xl text-gray-800 dark:text-gray-100 text-center backdrop-blur-md transition-colors duration-300">
+      <h1 class="text-3xl font-bold mb-6 underline decoration-blue-600 dark:decoration-blue-400">Contact Me</h1>
+      <p class="mb-8 text-lg">Feel free to connect through any of the platforms below:</p>
+      <div class="space-y-6 text-left text-gray-700 dark:text-gray-200">
         <div class="flex items-center gap-3">
-          <i class="fas fa-envelope text-blue-600"></i>
-          <a href="mailto:anuragtripathi2602@gmail.com" class="hover:underline text-lg">anuragtripathi2602@gmail.com</a>
+          <!-- Email Icon -->
+          <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900">
+            <svg class="w-5 h-5 text-blue-600 dark:text-blue-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 12l-4-4-4 4m8 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16 0V6a2 2 0 00-2-2H6a2 2 0 00-2 2v6"></path>
+            </svg>
+          </span>
+          <a href="mailto:anuragtripathi2602@gmail.com" class="hover:underline text-lg break-all">anuragtripathi2602@gmail.com</a>
         </div>
-
         <div class="flex items-center gap-3">
-          <i class="fab fa-github text-gray-800"></i>
-          <a href="https://github.com/anurag24-26" target="_blank" class="hover:underline text-lg">github.com/anurag24-26</a>
+          <!-- GitHub Icon -->
+          <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800">
+            <svg class="w-5 h-5 text-gray-800 dark:text-gray-100" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.04 1.53 1.04.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.04A9.38 9.38 0 0112 7.07c.85.004 1.71.12 2.51.35 1.91-1.32 2.75-1.04 2.75-1.04.55 1.43.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48C19.13 20.58 22 16.76 22 12.26 22 6.58 17.52 2 12 2z"/>
+            </svg>
+          </span>
+          <a href="https://github.com/anurag24-26" target="_blank" rel="noopener" class="hover:underline text-lg">github.com/anurag24-26</a>
         </div>
-
         <div class="flex items-center gap-3">
-          <i class="fas fa-map-marker-alt text-red-600"></i>
+          <!-- Location Icon -->
+          <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 dark:bg-red-900">
+            <svg class="w-5 h-5 text-red-600 dark:text-red-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4.434 8-10A8 8 0 0 0 4 12c0 5.566 8 10 8 10z"></path>
+            </svg>
+          </span>
           <span class="text-lg">Mathura, Uttar Pradesh, India</span>
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="bg-black/30 text-white text-center py-4 text-sm">
+  <footer class="bg-black/30 dark:bg-gray-900/60 text-white text-center py-4 text-sm">
     &copy; 2025 CPI Calculator by Anurag Tripathi
   </footer>
+
+  <!-- Dark mode toggle logic (persistent) -->
+  <script>
+    (function() {
+      function setInitialMode() {
+        const userPref = localStorage.getItem('theme');
+        if (userPref === 'dark' || (!userPref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+      function toggleDarkMode() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        setInitialMode();
+        const toggleBtn = document.getElementById('dark-toggle');
+        if (toggleBtn) toggleBtn.addEventListener('click', toggleDarkMode);
+      });
+    })();
+  </script>
 </body>
 </html>
