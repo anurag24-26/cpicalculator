@@ -103,12 +103,26 @@
 
   <!-- Logic for CPI Calculator (reuse your index.js or inline as needed) -->
   <script src="index.js"></script>
-<!--   <script>
-    // Dark mode toggle logic
-    const toggle = document.getElementById('dark-toggle');
-    toggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
-  </script> -->
+ <script>
+    (function() {
+      function setInitialMode() {
+        const userPref = localStorage.getItem('theme');
+        if (userPref === 'dark' || (!userPref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+      function toggleDarkMode() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        setInitialMode();
+        const toggleBtn = document.getElementById('dark-toggle');
+        if (toggleBtn) toggleBtn.addEventListener('click', toggleDarkMode);
+      });
+    })();
+  </script>
 </body>
 </html>
