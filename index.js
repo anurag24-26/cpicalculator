@@ -22,19 +22,19 @@ function createInputs() {
     for (let i = 1; i <= number_ofsubjects; i++) {
       // Container
       const wrapper = document.createElement("div");
-      wrapper.className = "mb-6 p-4 bg-white/70 dark:bg-gray-800/70 rounded-2xl shadow-lg transition-all";
+      wrapper.className = "mb-5 p-4 border border-[var(--line)] rounded";
 
       // Subject Name
-      wrapper.appendChild(makeLabel(`Subject ${i}`, "block mb-1 font-semibold text-gray-700 dark:text-gray-200"));
-      wrapper.appendChild(makeInput(`name_${i}`, "text", `Enter name for Subject ${i}`, "w-full mb-3 p-2 border border-gray-300 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-900 dark:text-white"));
+      wrapper.appendChild(makeLabel(`Subject ${i}`, "block mb-2 text-xs uppercase tracking-wider text-[var(--muted)]"));
+      wrapper.appendChild(makeInput(`name_${i}`, "text", `Enter name for Subject ${i}`, "field w-full mb-3 px-3 py-2 text-sm"));
 
       // Credits
-      wrapper.appendChild(makeLabel("Credits:", "block mt-2 font-medium text-gray-700 dark:text-gray-200"));
-      wrapper.appendChild(makeInput(`credits_${i}`, "number", "Enter credits", "w-full p-2 border border-gray-300 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-900 dark:text-white"));
+      wrapper.appendChild(makeLabel("Credits", "block mb-2 text-xs uppercase tracking-wider text-[var(--muted)]"));
+      wrapper.appendChild(makeInput(`credits_${i}`, "number", "Enter credits", "field w-full mb-3 px-3 py-2 text-sm"));
 
       // Grade
-      wrapper.appendChild(makeLabel("Grade:", "block mt-2 font-medium text-gray-700 dark:text-gray-200"));
-      wrapper.appendChild(makeSelect(`grades_${i}`, gradeMap, "w-full p-2 border border-gray-300 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-900 dark:text-white"));
+      wrapper.appendChild(makeLabel("Grade", "block mb-2 text-xs uppercase tracking-wider text-[var(--muted)]"));
+      wrapper.appendChild(makeSelect(`grades_${i}`, gradeMap, "field w-full px-3 py-2 text-sm"));
 
       subjectInputs.appendChild(wrapper);
     }
@@ -100,10 +100,10 @@ function calculateCPI() {
     totalGrades += credits * (gradeMap[grade] || 0);
 
     tableRows += `
-      <tr class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-        <td class="px-4 py-2">${name}</td>
-        <td class="px-4 py-2">${credits}</td>
-        <td class="px-4 py-2">${grade}</td>
+      <tr class="border-b border-[var(--line)]">
+        <td class="px-4 py-2 text-left">${name}</td>
+        <td class="px-4 py-2 text-left">${credits}</td>
+        <td class="px-4 py-2 text-left">${grade}</td>
       </tr>
     `;
   }
@@ -111,19 +111,19 @@ function calculateCPI() {
   const cpi = totalCredits ? (totalGrades / totalCredits).toFixed(2) : "0.00";
 
   document.getElementById("result").innerHTML = `
-    <div class="overflow-x-auto mt-6">
-      <table class="w-full text-sm text-left text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-gray-700 rounded-lg">
-        <thead class="bg-blue-600 text-white">
-          <tr>
-            <th class="px-4 py-2">Subject Name</th>
-            <th class="px-4 py-2">Credits</th>
-            <th class="px-4 py-2">Grades</th>
+    <div class="mt-6 text-left">
+      <table class="w-full text-sm border border-[var(--line)] rounded overflow-hidden">
+        <thead>
+          <tr class="border-b border-[var(--line)] text-xs uppercase tracking-wider text-[var(--muted)]">
+            <th class="px-4 py-2 text-left">Subject</th>
+            <th class="px-4 py-2 text-left">Credits</th>
+            <th class="px-4 py-2 text-left">Grade</th>
           </tr>
         </thead>
         <tbody>${tableRows}</tbody>
       </table>
-      <div class="mt-4 text-xl font-bold text-gray-900 dark:text-white">
-        Total CPI: <span class="text-blue-700 dark:text-blue-300">${cpi}</span>
+      <div class="mt-5 text-center text-base">
+        Total CPI: <span class="font-semibold">${cpi}</span>
       </div>
     </div>
   `;
