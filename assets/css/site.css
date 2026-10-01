@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Student Academic Utility Hub — shared styles
+   Design tokens + components reused by every page.
+   Tailwind (CDN) handles layout utilities; this file holds the few custom
+   components that Tailwind alone can't express cleanly.
+   ========================================================================== */
+
+:root{
+  --bg:#000000;
+  --line:#262626;
+  --text:#ffffff;
+  --muted:#888888;
+  --ok:#d4d4d4;      /* neutral emphasis – the UI is strictly black & white */
+}
+
+*{ box-sizing:border-box; }
+body{ font-family:'Inter', sans-serif; background:var(--bg); color:var(--text); }
+
+/* ---- Form controls ---- */
+.field{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--text);
+  border-radius:4px;
+  transition:border-color .15s;
+}
+.field:focus{ outline:none; border-color:var(--text); }
+.field::placeholder{ color:var(--muted); }
+select.field option{ background:#000; color:#fff; }
+/* hide number spinners for a cleaner look */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+input[type=number]{ -moz-appearance:textfield; }
+
+/* ---- Buttons ---- */
+.btn-primary{
+  background:var(--text);
+  color:#000;
+  border-radius:4px;
+  font-weight:600;
+  transition:opacity .15s;
+}
+.btn-primary:hover{ opacity:.85; }
+
+.btn-outline{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--text);
+  border-radius:4px;
+  transition:border-color .15s;
+}
+.btn-outline:hover{ border-color:var(--text); }
+
+/* ---- Navigation ---- */
+.nav-link{ color:var(--muted); transition:color .15s; }
+.nav-link:hover{ color:var(--text); }
+.nav-link.active{ color:var(--text); }
+
+.nav-menu{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:4px;
+}
+.nav-menu a{
+  display:block;
+  padding:.55rem .9rem;
+  font-size:.875rem;
+  color:var(--muted);
+  transition:color .15s, background-color .15s;
+}
+.nav-menu a + a{ border-top:1px solid var(--line); }
+.nav-menu a:hover,
+.nav-menu a.active{ color:var(--text); background:#0a0a0a; }
+
+/* ---- List rows (tool links, contact rows, FAQ) ---- */
+.row-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1rem 0;
+  border-bottom:1px solid var(--line);
+  transition:opacity .15s;
+}
+.row-link:hover{ opacity:.7; }
+
+/* ---- Result box (shared by all calculators) ---- */
+.result-box{
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:1.25rem;
+}
+.result-box .value{ font-size:2rem; font-weight:600; letter-spacing:-.02em; line-height:1.1; }
+.result-box .label{ font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+.result-error{ border:1px solid #525252; border-radius:4px; padding:.75rem 1rem; color:var(--text); font-size:.875rem; }
+
+/* ---- Long-form content (guides, FAQ, explanations) ---- */
+.prose-lite{ color:var(--muted); font-size:.9rem; line-height:1.75; }
+.prose-lite h2{ color:var(--text); font-size:1.4rem; font-weight:600; letter-spacing:-.01em; margin:0 0 .75rem; }
+.prose-lite h3{ color:var(--text); font-size:1rem; font-weight:600; margin:1.5rem 0 .5rem; }
+.prose-lite p{ margin:0 0 1rem; }
+.prose-lite ul, .prose-lite ol{ margin:0 0 1rem 1.25rem; }
+.prose-lite ul{ list-style:disc; }
+.prose-lite ol{ list-style:decimal; }
+.prose-lite li{ margin-bottom:.35rem; }
+.prose-lite strong{ color:var(--text); font-weight:600; }
+.prose-lite a{ color:var(--text); text-decoration:underline; text-underline-offset:3px; text-decoration-color:#555; transition:text-decoration-color .15s; }
+.prose-lite a:hover{ text-decoration-color:var(--text); }
+.formula{
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:.75rem 1rem;
+  margin:0 0 1rem;
+  color:var(--text);
+  font-size:.875rem;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+.prose-lite table{ width:100%; border:1px solid var(--line); border-collapse:collapse; margin:0 0 1rem; font-size:.85rem; }
+.prose-lite th, .prose-lite td{ text-align:left; padding:.5rem .75rem; border-bottom:1px solid var(--line); }
+.prose-lite th{ color:var(--text); font-weight:500; font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; }
+
+/* FAQ accordions (native <details>, no JS) */
+details.faq{ border-bottom:1px solid var(--line); }
+details.faq summary{ cursor:pointer; list-style:none; padding:1rem 0; font-size:.95rem; font-weight:500; display:flex; justify-content:space-between; gap:1rem; }
+details.faq summary::-webkit-details-marker{ display:none; }
+details.faq summary::after{ content:'+'; color:var(--muted); font-weight:400; }
+details.faq[open] summary::after{ content:'–'; }
+details.faq .answer{ padding:0 0 1.1rem; }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-track{ background:var(--bg); }
+::-webkit-scrollbar-thumb{ background:#333; }

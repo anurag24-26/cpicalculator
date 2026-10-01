@@ -3,41 +3,56 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact – CPI Calculator</title>
+<title>Contact | Student Academic Utility Hub – CPI Calculator</title>
+<meta name="description" content="Contact the creator of the CPI Calculator and Student Academic Utility Hub for feedback, bug reports or tool suggestions.">
+<meta name="author" content="Anurag Tripathi">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://anurag24-26.github.io/cpicalculator/contact.html">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Student Academic Utility Hub">
+<meta property="og:title" content="Contact | Student Academic Utility Hub – CPI Calculator">
+<meta property="og:description" content="Contact the creator of the CPI Calculator and Student Academic Utility Hub for feedback, bug reports or tool suggestions.">
+<meta property="og:url" content="https://anurag24-26.github.io/cpicalculator/contact.html">
+<meta property="og:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact | Student Academic Utility Hub – CPI Calculator">
+<meta name="twitter:description" content="Contact the creator of the CPI Calculator and Student Academic Utility Hub for feedback, bug reports or tool suggestions.">
+<meta name="twitter:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+
+<!-- Icons -->
 <link rel="icon" type="image/png" href="favicon.png" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/site.css">
 <style>
-  :root{ --bg:#000000; --line:#262626; --text:#ffffff; --muted:#888888; }
-  *{box-sizing:border-box;}
-  body{ font-family:'Inter', sans-serif; background:var(--bg); color:var(--text); }
-  .nav-link{ color:var(--muted); transition:color .15s; }
-  .nav-link:hover{ color:var(--text); }
-  .nav-link.active{ color:var(--text); }
-  .contact-row{
-    border-bottom:1px solid var(--line);
-    transition:opacity .15s;
-  }
+  .contact-row{ border-bottom:1px solid var(--line); transition:opacity .15s; }
   .contact-row:hover{ opacity:.7; }
-  ::-webkit-scrollbar{ width:8px; }
-  ::-webkit-scrollbar-track{ background:var(--bg); }
-  ::-webkit-scrollbar-thumb{ background:#333; }
 </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col" data-page="contact">
 
-  <nav class="border-b border-[var(--line)]">
-    <div class="container mx-auto flex justify-between items-center px-6 py-5 max-w-3xl">
-      <span class="font-semibold text-base tracking-tight">CPI Calculator</span>
-      <div class="flex items-center gap-7 text-sm">
+  <!-- Navbar (rendered by assets/js/site.js) -->
+  <header id="site-header">
+  <noscript>
+    <nav class="border-b border-[var(--line)]" aria-label="Main navigation">
+      <div class="container mx-auto flex flex-wrap gap-x-6 gap-y-2 px-6 py-5 max-w-3xl text-sm">
+        <a href="index.html" class="font-semibold">Student Hub</a>
         <a href="index.html" class="nav-link">Home</a>
+        <a href="attendance.html" class="nav-link">Tools</a>
+        <a href="guides.html" class="nav-link">Guides</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </noscript>
+  </header>
 
   <main class="flex-1 flex items-center justify-center px-6 py-20">
     <div class="max-w-md w-full">
@@ -62,9 +77,9 @@
     </div>
   </main>
 
-  <footer class="border-t border-[var(--line)] text-[var(--muted)] text-center py-5 text-xs">
-    © 2025 CPI Calculator — Built by Anurag Tripathi
-  </footer>
+  <!-- Footer (rendered by assets/js/site.js) -->
+  <footer id="site-footer" class="border-t border-[var(--line)] text-[var(--muted)] text-xs"></footer>
 
+  <script src="assets/js/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SGPA to CGPA Calculator | Convert Semester SGPA to CGPA</title>
+<meta name="description" content="Convert semester-wise SGPA and credits into your overall CGPA. Add as many semesters as you need using the credit-weighted formula.">
+<meta name="keywords" content="SGPA to CGPA calculator, convert SGPA to CGPA, CGPA calculator semester wise">
+<meta name="author" content="Anurag Tripathi">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://anurag24-26.github.io/cpicalculator/sgpa-cgpa.html">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Student Academic Utility Hub">
+<meta property="og:title" content="SGPA to CGPA Calculator | Convert Semester SGPA to CGPA">
+<meta property="og:description" content="Convert semester-wise SGPA and credits into your overall CGPA. Add as many semesters as you need using the credit-weighted formula.">
+<meta property="og:url" content="https://anurag24-26.github.io/cpicalculator/sgpa-cgpa.html">
+<meta property="og:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SGPA to CGPA Calculator | Convert Semester SGPA to CGPA">
+<meta name="twitter:description" content="Convert semester-wise SGPA and credits into your overall CGPA. Add as many semesters as you need using the credit-weighted formula.">
+<meta name="twitter:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SGPA to CGPA Converter", "url": "https://anurag24-26.github.io/cpicalculator/sgpa-cgpa.html", "description": "Convert semester-wise SGPA and credits into your overall CGPA. Add as many semesters as you need using the credit-weighted formula.", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "author": {"@type": "Person", "name": "Anurag Tripathi"}}</script>
+</head>
+<body class="min-h-screen flex flex-col" data-page="sgpa-cgpa">
+
+  <!-- Navbar (rendered by assets/js/site.js) -->
+  <header id="site-header">
+  <noscript>
+    <nav class="border-b border-[var(--line)]" aria-label="Main navigation">
+      <div class="container mx-auto flex flex-wrap gap-x-6 gap-y-2 px-6 py-5 max-w-3xl text-sm">
+        <a href="index.html" class="font-semibold">Student Hub</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="attendance.html" class="nav-link">Tools</a>
+        <a href="guides.html" class="nav-link">Guides</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </noscript>
+  </header>
+
+  <main class="flex-1 px-6 py-16">
+    <div class="max-w-lg w-full mx-auto">
+
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-3">Tool</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-3">SGPA to CGPA Converter</h1>
+      <p class="text-[var(--muted)] text-sm leading-relaxed mb-10">Add your semesters with their SGPA and total credits. CGPA is the credit-weighted average of all your SGPAs.</p>
+
+      <form id="sgpaForm" class="space-y-4" novalidate>
+        <div id="semesters" class="space-y-3"></div>
+        <button type="button" id="addSem" class="btn-outline w-full px-4 py-2.5 text-sm disabled:opacity-40">+ Add semester</button>
+        <button type="button" id="calcBtn" class="btn-primary w-full px-8 py-3 text-sm">Calculate CGPA</button>
+      </form>
+
+      <div id="result" class="mt-6" aria-live="polite"></div>
+
+      <section class="prose-lite mt-16" aria-labelledby="explain-title">
+        <h2 id="explain-title">How SGPA converts to CGPA</h2>
+        <p>Each semester's SGPA is weighted by the credits of that semester, so a heavy semester counts for more than a light one:</p>
+        <p class="formula">CGPA = Σ(SGPA × Credits) ÷ Σ Credits</p>
+        <p>Example: Semester 1 has SGPA 8.0 with 20 credits and Semester 2 has SGPA 9.0 with 25 credits. CGPA = (8.0 × 20 + 9.0 × 25) ÷ (20 + 25) = 385 ÷ 45 = <strong>8.56</strong>.</p>
+        <p>A plain average of the two SGPAs would give 8.50. The two only match when every semester carries the same credits.</p>
+        <ul>
+          <li>Use the credits that count towards your CGPA, as printed on your marksheet.</li>
+          <li>Some universities treat backlogs and repeated courses differently. Check your regulations for the exact rule.</li>
+          <li>See <a href="guides.html#sgpa-explained">SGPA calculation explained</a> for how each SGPA is worked out.</li>
+        </ul>
+      </section>
+
+      <section id="related-tools" class="mt-16" aria-label="More student tools"></section>
+    </div>
+  </main>
+
+  <!-- Footer (rendered by assets/js/site.js) -->
+  <footer id="site-footer" class="border-t border-[var(--line)] text-[var(--muted)] text-xs"></footer>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/calc-utils.js"></script>
+  <script src="assets/js/sgpa-cgpa.js"></script>
+</body>
+</html>

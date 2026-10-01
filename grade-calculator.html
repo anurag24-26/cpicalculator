@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grade Calculator | Weighted Marks to Final Percentage</title>
+<meta name="description" content="Weighted grade calculator for internals, mid-semester and end-semester marks. Get your final percentage and estimated grade instantly.">
+<meta name="keywords" content="grade calculator, weighted grade calculator, internal mid end semester marks calculator, final percentage calculator">
+<meta name="author" content="Anurag Tripathi">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://anurag24-26.github.io/cpicalculator/grade-calculator.html">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Student Academic Utility Hub">
+<meta property="og:title" content="Grade Calculator | Weighted Marks to Final Percentage">
+<meta property="og:description" content="Weighted grade calculator for internals, mid-semester and end-semester marks. Get your final percentage and estimated grade instantly.">
+<meta property="og:url" content="https://anurag24-26.github.io/cpicalculator/grade-calculator.html">
+<meta property="og:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grade Calculator | Weighted Marks to Final Percentage">
+<meta name="twitter:description" content="Weighted grade calculator for internals, mid-semester and end-semester marks. Get your final percentage and estimated grade instantly.">
+<meta name="twitter:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Grade Calculator", "url": "https://anurag24-26.github.io/cpicalculator/grade-calculator.html", "description": "Weighted grade calculator for internals, mid-semester and end-semester marks. Get your final percentage and estimated grade instantly.", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "author": {"@type": "Person", "name": "Anurag Tripathi"}}</script>
+</head>
+<body class="min-h-screen flex flex-col" data-page="grade-calculator">
+
+  <!-- Navbar (rendered by assets/js/site.js) -->
+  <header id="site-header">
+  <noscript>
+    <nav class="border-b border-[var(--line)]" aria-label="Main navigation">
+      <div class="container mx-auto flex flex-wrap gap-x-6 gap-y-2 px-6 py-5 max-w-3xl text-sm">
+        <a href="index.html" class="font-semibold">Student Hub</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="attendance.html" class="nav-link">Tools</a>
+        <a href="guides.html" class="nav-link">Guides</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </noscript>
+  </header>
+
+  <main class="flex-1 px-6 py-16">
+    <div class="max-w-lg w-full mx-auto">
+
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-3">Tool</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-3">Grade Calculator</h1>
+      <p class="text-[var(--muted)] text-sm leading-relaxed mb-10">Add each assessment with its weight and your score. Leave a score blank if it has not happened yet to see your standing so far.</p>
+
+      <form id="gradeForm" class="space-y-4" novalidate>
+        <div id="components" class="space-y-3"></div>
+        <button type="button" id="addComp" class="btn-outline w-full px-4 py-2.5 text-sm disabled:opacity-40">+ Add component</button>
+        <div>
+          <label for="scale" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Grade scale</label>
+          <select id="scale" class="field w-full px-4 py-2.5 text-sm">
+            <option value="ten">10-point scale (O, A+, A, B+, B, C)</option>
+            <option value="letter">Letter scale (A–F)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary w-full px-8 py-3 text-sm">Calculate grade</button>
+      </form>
+
+      <div id="result" class="mt-6" aria-live="polite"></div>
+
+      <section class="prose-lite mt-16" aria-labelledby="explain-title">
+        <h2 id="explain-title">How the weighted grade is calculated</h2>
+        <p>Each component contributes its score fraction multiplied by its weight:</p>
+        <p class="formula">Final % = Σ( Weight × Score ÷ Max ) ÷ Σ Weight × 100</p>
+        <p>Example: Internal 30% scored 24/30, Mid semester 20% scored 15/20, End semester 50% scored 40/50. Weighted marks = 30 × 0.80 + 20 × 0.75 + 50 × 0.80 = 24 + 15 + 40 = <strong>79%</strong>, which is an A on the 10-point scale below.</p>
+        <table>
+          <thead><tr><th>Percentage</th><th>10-point</th><th>Letter</th></tr></thead>
+          <tbody>
+            <tr><td>90 and above</td><td>O (10)</td><td>A</td></tr>
+            <tr><td>80 – 89.99</td><td>A+ (9)</td><td>B</td></tr>
+            <tr><td>70 – 79.99</td><td>A (8)</td><td>C</td></tr>
+            <tr><td>60 – 69.99</td><td>B+ (7)</td><td>D</td></tr>
+            <tr><td>50 – 59.99</td><td>B (6)</td><td>F</td></tr>
+            <tr><td>40 – 49.99</td><td>C (5)</td><td>F</td></tr>
+            <tr><td>Below 40</td><td>F (0)</td><td>F</td></tr>
+          </tbody>
+        </table>
+        <p>These bands are a common default, not a rule: many universities use relative grading or different cut-offs, so treat the grade as an estimate and check your own grading policy.</p>
+        <p>Once you know your grades, turn them into a CPI with the <a href="index.html#calculator">CPI calculator</a>.</p>
+      </section>
+
+      <section id="related-tools" class="mt-16" aria-label="More student tools"></section>
+    </div>
+  </main>
+
+  <!-- Footer (rendered by assets/js/site.js) -->
+  <footer id="site-footer" class="border-t border-[var(--line)] text-[var(--muted)] text-xs"></footer>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/calc-utils.js"></script>
+  <script src="assets/js/grade-calculator.js"></script>
+</body>
+</html>

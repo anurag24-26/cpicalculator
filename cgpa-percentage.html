@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CGPA to Percentage Calculator | GLA, AKTU, VTU & Custom</title>
+<meta name="description" content="Convert CGPA to percentage using GLA University (×9.5), AKTU, VTU or your own custom multiplier. Free and instant.">
+<meta name="keywords" content="CGPA to percentage calculator, CGPA to percentage GLA University, AKTU CGPA to percentage, VTU CGPA to percentage">
+<meta name="author" content="Anurag Tripathi">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://anurag24-26.github.io/cpicalculator/cgpa-percentage.html">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Student Academic Utility Hub">
+<meta property="og:title" content="CGPA to Percentage Calculator | GLA, AKTU, VTU & Custom">
+<meta property="og:description" content="Convert CGPA to percentage using GLA University (×9.5), AKTU, VTU or your own custom multiplier. Free and instant.">
+<meta property="og:url" content="https://anurag24-26.github.io/cpicalculator/cgpa-percentage.html">
+<meta property="og:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CGPA to Percentage Calculator | GLA, AKTU, VTU & Custom">
+<meta name="twitter:description" content="Convert CGPA to percentage using GLA University (×9.5), AKTU, VTU or your own custom multiplier. Free and instant.">
+<meta name="twitter:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CGPA to Percentage Converter", "url": "https://anurag24-26.github.io/cpicalculator/cgpa-percentage.html", "description": "Convert CGPA to percentage using GLA University (×9.5), AKTU, VTU or your own custom multiplier. Free and instant.", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "author": {"@type": "Person", "name": "Anurag Tripathi"}}</script>
+</head>
+<body class="min-h-screen flex flex-col" data-page="cgpa-percentage">
+
+  <!-- Navbar (rendered by assets/js/site.js) -->
+  <header id="site-header">
+  <noscript>
+    <nav class="border-b border-[var(--line)]" aria-label="Main navigation">
+      <div class="container mx-auto flex flex-wrap gap-x-6 gap-y-2 px-6 py-5 max-w-3xl text-sm">
+        <a href="index.html" class="font-semibold">Student Hub</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="attendance.html" class="nav-link">Tools</a>
+        <a href="guides.html" class="nav-link">Guides</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </noscript>
+  </header>
+
+  <main class="flex-1 px-6 py-16">
+    <div class="max-w-lg w-full mx-auto">
+
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-3">Tool</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-3">CGPA to Percentage Converter</h1>
+      <p class="text-[var(--muted)] text-sm leading-relaxed mb-10">Choose your university formula or enter your own multiplier to convert CGPA into an equivalent percentage.</p>
+
+      <form id="cgpaForm" class="space-y-6" novalidate>
+        <div>
+          <label for="cgpa" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">CGPA</label>
+          <input type="number" id="cgpa" min="0" max="10" step="0.01" inputmode="decimal" placeholder="e.g. 8.2" class="field w-full px-4 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label for="university" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">University / formula</label>
+          <select id="university" class="field w-full px-4 py-2.5 text-sm">
+            <option value="gla">GLA University</option>
+            <option value="aktu">AKTU</option>
+            <option value="vtu">VTU</option>
+            <option value="custom">Custom</option>
+          </select>
+          <p id="formulaLine" class="text-xs text-[var(--muted)] mt-2"></p>
+        </div>
+        <div id="customFields" class="hidden grid grid-cols-2 gap-3">
+          <div>
+            <label for="multiplier" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Multiplier</label>
+            <input type="number" id="multiplier" min="0" step="any" inputmode="decimal" placeholder="e.g. 9.5" class="field w-full px-4 py-2.5 text-sm" />
+          </div>
+          <div>
+            <label for="deduction" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Deduction (optional)</label>
+            <input type="number" id="deduction" min="0" step="any" inputmode="decimal" placeholder="e.g. 7.5" class="field w-full px-4 py-2.5 text-sm" />
+          </div>
+        </div>
+        <button type="submit" class="btn-primary w-full px-8 py-3 text-sm">Convert to percentage</button>
+      </form>
+
+      <div id="result" class="mt-6" aria-live="polite"></div>
+
+      <section class="prose-lite mt-16" aria-labelledby="explain-title">
+        <h2 id="explain-title">How CGPA is converted to percentage</h2>
+        <p>Universities publish their own conversion rule. Most are a straight multiplier, sometimes with a fixed deduction:</p>
+        <p class="formula">Percentage = (CGPA × multiplier) − deduction</p>
+        <table>
+          <thead><tr><th>Option</th><th>Formula</th><th>CGPA 8.0</th></tr></thead>
+          <tbody>
+            <tr><td>GLA University</td><td>CGPA × 9.5</td><td>76.0%</td></tr>
+            <tr><td>AKTU</td><td>(CGPA × 10) − 7.5</td><td>72.5%</td></tr>
+            <tr><td>VTU</td><td>(CGPA − 0.75) × 10</td><td>72.5%</td></tr>
+          </tbody>
+        </table>
+        <p>The AKTU and VTU rules work out to the same number. Choose <strong>Custom</strong> if your university uses another multiplier, and add a deduction if it has one.</p>
+        <p><strong>Always confirm with your university.</strong> Conversion rules can differ by batch or year, and the official notification or your transcript decides the figure for applications. The result is capped between 0 and 100.</p>
+        <p>New to these terms? See <a href="guides.html#cpi-vs-cgpa">CPI vs CGPA</a> or the <a href="faq.html">FAQ</a>.</p>
+      </section>
+
+      <section id="related-tools" class="mt-16" aria-label="More student tools"></section>
+    </div>
+  </main>
+
+  <!-- Footer (rendered by assets/js/site.js) -->
+  <footer id="site-footer" class="border-t border-[var(--line)] text-[var(--muted)] text-xs"></footer>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/calc-utils.js"></script>
+  <script src="assets/js/cgpa-percentage.js"></script>
+</body>
+</html>

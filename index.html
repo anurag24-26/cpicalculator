@@ -3,75 +3,54 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CPI Calculator – GLA University</title>
-<meta name="description" content="Instantly calculate your Cumulative Performance Index (CPI) with this user-friendly tool designed for GLA University students.">
-<meta name="keywords" content="CPI Calculator, CGPA, GPA, CPI Tool, GLA University">
+<title>CPI Calculator – Calculate CPI Online | GLA University</title>
+<meta name="description" content="Instantly calculate your Cumulative Performance Index (CPI) with this user-friendly tool designed for GLA University students. Plus attendance, SGPA to CGPA, percentage and grade calculators.">
+<meta name="keywords" content="CPI Calculator, CGPA, GPA, CPI Tool, GLA University, attendance calculator, SGPA to CGPA">
 <meta name="author" content="Anurag Tripathi">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://anurag24-26.github.io/cpicalculator/">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Student Academic Utility Hub">
+<meta property="og:title" content="CPI Calculator – Calculate CPI Online | GLA University">
+<meta property="og:description" content="Instantly calculate your Cumulative Performance Index (CPI) with this user-friendly tool designed for GLA University students. Plus attendance, SGPA to CGPA, percentage and grade calculators.">
+<meta property="og:url" content="https://anurag24-26.github.io/cpicalculator/">
+<meta property="og:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CPI Calculator – Calculate CPI Online | GLA University">
+<meta name="twitter:description" content="Instantly calculate your Cumulative Performance Index (CPI) with this user-friendly tool designed for GLA University students. Plus attendance, SGPA to CGPA, percentage and grade calculators.">
+<meta name="twitter:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+
+<!-- Icons -->
 <link rel="icon" type="image/png" href="favicon.png" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<style>
-  :root{
-    --bg:#000000;
-    --line:#262626;
-    --text:#ffffff;
-    --muted:#888888;
-  }
-  *{box-sizing:border-box;}
-  body{ font-family:'Inter', sans-serif; background:var(--bg); color:var(--text); }
-
-  .field{
-    background:transparent;
-    border:1px solid var(--line);
-    color:var(--text);
-    border-radius:4px;
-    transition:border-color .15s;
-  }
-  .field:focus{ outline:none; border-color:var(--text); }
-  .field::placeholder{ color:var(--muted); }
-
-  .btn-primary{
-    background:var(--text);
-    color:#000;
-    border-radius:4px;
-    font-weight:600;
-    transition:opacity .15s;
-  }
-  .btn-primary:hover{ opacity:.85; }
-
-  .btn-outline{
-    background:transparent;
-    border:1px solid var(--line);
-    color:var(--text);
-    border-radius:4px;
-    transition:border-color .15s;
-  }
-  .btn-outline:hover{ border-color:var(--text); }
-
-  .nav-link{ color:var(--muted); transition:color .15s; }
-  .nav-link:hover{ color:var(--text); }
-  .nav-link.active{ color:var(--text); }
-
-  ::-webkit-scrollbar{ width:8px; }
-  ::-webkit-scrollbar-track{ background:var(--bg); }
-  ::-webkit-scrollbar-thumb{ background:#333; }
-</style>
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CPI Calculator", "url": "https://anurag24-26.github.io/cpicalculator/", "description": "Instantly calculate your Cumulative Performance Index (CPI) with this user-friendly tool designed for GLA University students. Plus attendance, SGPA to CGPA, percentage and grade calculators.", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "author": {"@type": "Person", "name": "Anurag Tripathi"}}</script>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col" data-page="home">
 
-  <!-- Navbar -->
-  <nav class="border-b border-[var(--line)]">
-    <div class="container mx-auto flex justify-between items-center px-6 py-5 max-w-3xl">
-      <span class="font-semibold text-base tracking-tight">CPI Calculator</span>
-      <div class="flex items-center gap-7 text-sm">
-        <a href="index.html" class="nav-link active">Home</a>
+  <!-- Navbar (rendered by assets/js/site.js) -->
+  <header id="site-header">
+  <noscript>
+    <nav class="border-b border-[var(--line)]" aria-label="Main navigation">
+      <div class="container mx-auto flex flex-wrap gap-x-6 gap-y-2 px-6 py-5 max-w-3xl text-sm">
+        <a href="index.html" class="font-semibold">Student Hub</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="attendance.html" class="nav-link">Tools</a>
+        <a href="guides.html" class="nav-link">Guides</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </noscript>
+  </header>
 
   <!-- Main Content -->
   <main class="flex-1 flex flex-col items-center justify-center px-6 py-20">
@@ -84,7 +63,7 @@
     </p>
 
     <!-- Calculator Card -->
-    <section class="max-w-md w-full mx-auto">
+    <section id="calculator" class="max-w-md w-full mx-auto scroll-mt-8">
       <form id="cpiForm" class="space-y-7">
 
         <div>
@@ -113,13 +92,48 @@
     <p class="text-[var(--muted)] text-xs mt-10 text-center max-w-xs">
       Grade points are on a 0–10 scale; use credits as assigned in your curriculum.
     </p>
+
+    <!-- Student Tools -->
+    <section class="max-w-md w-full mx-auto mt-24" aria-labelledby="tools-heading">
+      <h2 id="tools-heading" class="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Student Tools</h2>
+      <div class="border-t border-[var(--line)]">
+        <a href="#calculator" class="row-link">
+          <span><span class="block text-sm">CPI Calculator</span><span class="block text-xs text-[var(--muted)] mt-0.5">Calculate your CPI from subject credits and grades.</span></span>
+          <span class="text-[var(--muted)]" aria-hidden="true">→</span>
+        </a>
+        <a href="attendance.html" class="row-link">
+          <span><span class="block text-sm">Attendance Calculator</span><span class="block text-xs text-[var(--muted)] mt-0.5">Check attendance % and how many classes you can miss.</span></span>
+          <span class="text-[var(--muted)]" aria-hidden="true">→</span>
+        </a>
+        <a href="sgpa-cgpa.html" class="row-link">
+          <span><span class="block text-sm">SGPA Converter</span><span class="block text-xs text-[var(--muted)] mt-0.5">Combine semester SGPAs into a single CGPA.</span></span>
+          <span class="text-[var(--muted)]" aria-hidden="true">→</span>
+        </a>
+        <a href="cgpa-percentage.html" class="row-link">
+          <span><span class="block text-sm">CGPA Converter</span><span class="block text-xs text-[var(--muted)] mt-0.5">Convert CGPA to percentage with university formulas.</span></span>
+          <span class="text-[var(--muted)]" aria-hidden="true">→</span>
+        </a>
+        <a href="required-cgpa.html" class="row-link">
+          <span><span class="block text-sm">Required CGPA Predictor</span><span class="block text-xs text-[var(--muted)] mt-0.5">Find the SGPA you need to reach a target CGPA.</span></span>
+          <span class="text-[var(--muted)]" aria-hidden="true">→</span>
+        </a>
+        <a href="grade-calculator.html" class="row-link">
+          <span><span class="block text-sm">Grade Calculator</span><span class="block text-xs text-[var(--muted)] mt-0.5">Weighted marks to final percentage and grade.</span></span>
+          <span class="text-[var(--muted)]" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <p class="text-[var(--muted)] text-sm leading-relaxed mt-10">
+        Built for university students to calculate grades, attendance, and academic performance instantly.
+        Everything runs in your browser, so your marks are never uploaded. New to these terms? Start with the
+        <a href="guides.html" class="text-white underline underline-offset-4 decoration-[#555] hover:decoration-white">guides</a>
+        or the <a href="faq.html" class="text-white underline underline-offset-4 decoration-[#555] hover:decoration-white">FAQ</a>.
+      </p>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-[var(--line)] text-[var(--muted)] text-center py-5 text-xs">
-    © 2025 CPI Calculator — Built by Anurag Tripathi
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=anurag24-26.cpicalculator" alt="visitor badge" class="inline-block ml-2 opacity-60"/>
-  </footer>
+  <!-- Footer (rendered by assets/js/site.js) -->
+  <footer id="site-footer" class="border-t border-[var(--line)] text-[var(--muted)] text-xs" data-badge="anurag24-26.cpicalculator"></footer>
 
   <!-- Buy Me a Coffee Widget -->
   <script data-name="BMC-Widget" data-cfasync="false"
@@ -133,6 +147,7 @@
     data-y_margin="18">
   </script>
 
-  <script src="index.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/cpi-calculator.js"></script>
 </body>
 </html>

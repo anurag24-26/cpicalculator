@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Required CGPA Calculator | SGPA Needed for Target CGPA</title>
+<meta name="description" content="Find the SGPA you need in your remaining semesters to reach your target CGPA, based on your current CGPA and credits.">
+<meta name="keywords" content="required CGPA calculator, target CGPA calculator, SGPA needed for target CGPA, CGPA predictor">
+<meta name="author" content="Anurag Tripathi">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://anurag24-26.github.io/cpicalculator/required-cgpa.html">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Student Academic Utility Hub">
+<meta property="og:title" content="Required CGPA Calculator | SGPA Needed for Target CGPA">
+<meta property="og:description" content="Find the SGPA you need in your remaining semesters to reach your target CGPA, based on your current CGPA and credits.">
+<meta property="og:url" content="https://anurag24-26.github.io/cpicalculator/required-cgpa.html">
+<meta property="og:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Required CGPA Calculator | SGPA Needed for Target CGPA">
+<meta name="twitter:description" content="Find the SGPA you need in your remaining semesters to reach your target CGPA, based on your current CGPA and credits.">
+<meta name="twitter:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Required CGPA Predictor", "url": "https://anurag24-26.github.io/cpicalculator/required-cgpa.html", "description": "Find the SGPA you need in your remaining semesters to reach your target CGPA, based on your current CGPA and credits.", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "author": {"@type": "Person", "name": "Anurag Tripathi"}}</script>
+</head>
+<body class="min-h-screen flex flex-col" data-page="required-cgpa">
+
+  <!-- Navbar (rendered by assets/js/site.js) -->
+  <header id="site-header">
+  <noscript>
+    <nav class="border-b border-[var(--line)]" aria-label="Main navigation">
+      <div class="container mx-auto flex flex-wrap gap-x-6 gap-y-2 px-6 py-5 max-w-3xl text-sm">
+        <a href="index.html" class="font-semibold">Student Hub</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="attendance.html" class="nav-link">Tools</a>
+        <a href="guides.html" class="nav-link">Guides</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </noscript>
+  </header>
+
+  <main class="flex-1 px-6 py-16">
+    <div class="max-w-lg w-full mx-auto">
+
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-3">Tool</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-3">Required CGPA Predictor</h1>
+      <p class="text-[var(--muted)] text-sm leading-relaxed mb-10">See what SGPA you need across your remaining credits to finish with the CGPA you are aiming for.</p>
+
+      <form id="requiredForm" class="space-y-6" novalidate>
+        <div>
+          <label for="current" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Current CGPA</label>
+          <input type="number" id="current" min="0" max="10" step="0.01" inputmode="decimal" placeholder="e.g. 7.2" class="field w-full px-4 py-2.5 text-sm" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="done" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Completed credits</label>
+            <input type="number" id="done" min="0" step="any" inputmode="decimal" placeholder="e.g. 80" class="field w-full px-4 py-2.5 text-sm" />
+          </div>
+          <div>
+            <label for="left" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Remaining credits</label>
+            <input type="number" id="left" min="0" step="any" inputmode="decimal" placeholder="e.g. 80" class="field w-full px-4 py-2.5 text-sm" />
+          </div>
+        </div>
+        <div>
+          <label for="target" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Target CGPA</label>
+          <input type="number" id="target" min="0" max="10" step="0.01" inputmode="decimal" placeholder="e.g. 8" class="field w-full px-4 py-2.5 text-sm" />
+        </div>
+        <button type="submit" class="btn-primary w-full px-8 py-3 text-sm">Calculate required SGPA</button>
+      </form>
+
+      <div id="result" class="mt-6" aria-live="polite"></div>
+
+      <section class="prose-lite mt-16" aria-labelledby="explain-title">
+        <h2 id="explain-title">How the required SGPA is calculated</h2>
+        <p>Your final CGPA is the credit-weighted average of everything you have done and everything still to come. Solving that for the unknown SGPA gives:</p>
+        <p class="formula">Required SGPA = (Target × (Done + Left) − Current × Done) ÷ Left</p>
+        <p>Example: current CGPA 7.2 over 80 completed credits, 80 credits remaining, target 8.0. Required SGPA = (8.0 × 160 − 7.2 × 80) ÷ 80 = 704 ÷ 80 = <strong>8.8</strong>.</p>
+        <ul>
+          <li>If the answer is above 10, the target is out of reach and the tool shows the highest CGPA you can still finish with.</li>
+          <li>The more credits you have already completed, the harder it is to move your CGPA, which is why early semesters matter.</li>
+          <li>The result is an average across the remaining credits, not a per-semester minimum.</li>
+        </ul>
+        <p>For practical tips, read <a href="guides.html#improve-cgpa">how to improve your CGPA</a>.</p>
+      </section>
+
+      <section id="related-tools" class="mt-16" aria-label="More student tools"></section>
+    </div>
+  </main>
+
+  <!-- Footer (rendered by assets/js/site.js) -->
+  <footer id="site-footer" class="border-t border-[var(--line)] text-[var(--muted)] text-xs"></footer>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/calc-utils.js"></script>
+  <script src="assets/js/required-cgpa.js"></script>
+</body>
+</html>

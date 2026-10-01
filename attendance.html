@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Attendance Calculator | Calculate 75% Attendance Requirement</title>
+<meta name="description" content="Free attendance calculator. Find your current attendance percentage, how many classes you need to reach 75%, or how many you can safely miss.">
+<meta name="keywords" content="attendance calculator, 75% attendance calculator, attendance percentage, how many classes can I miss">
+<meta name="author" content="Anurag Tripathi">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://anurag24-26.github.io/cpicalculator/attendance.html">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Student Academic Utility Hub">
+<meta property="og:title" content="Attendance Calculator | Calculate 75% Attendance Requirement">
+<meta property="og:description" content="Free attendance calculator. Find your current attendance percentage, how many classes you need to reach 75%, or how many you can safely miss.">
+<meta property="og:url" content="https://anurag24-26.github.io/cpicalculator/attendance.html">
+<meta property="og:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Attendance Calculator | Calculate 75% Attendance Requirement">
+<meta name="twitter:description" content="Free attendance calculator. Find your current attendance percentage, how many classes you need to reach 75%, or how many you can safely miss.">
+<meta name="twitter:image" content="https://anurag24-26.github.io/cpicalculator/preview.png">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Attendance Calculator", "url": "https://anurag24-26.github.io/cpicalculator/attendance.html", "description": "Free attendance calculator. Find your current attendance percentage, how many classes you need to reach 75%, or how many you can safely miss.", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "author": {"@type": "Person", "name": "Anurag Tripathi"}}</script>
+</head>
+<body class="min-h-screen flex flex-col" data-page="attendance">
+
+  <!-- Navbar (rendered by assets/js/site.js) -->
+  <header id="site-header">
+  <noscript>
+    <nav class="border-b border-[var(--line)]" aria-label="Main navigation">
+      <div class="container mx-auto flex flex-wrap gap-x-6 gap-y-2 px-6 py-5 max-w-3xl text-sm">
+        <a href="index.html" class="font-semibold">Student Hub</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="attendance.html" class="nav-link">Tools</a>
+        <a href="guides.html" class="nav-link">Guides</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </noscript>
+  </header>
+
+  <main class="flex-1 px-6 py-16">
+    <div class="max-w-lg w-full mx-auto">
+
+      <p class="text-xs uppercase tracking-wider text-[var(--muted)] mb-3">Tool</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-3">Attendance Calculator</h1>
+      <p class="text-[var(--muted)] text-sm leading-relaxed mb-10">Enter your classes conducted and attended to see your attendance percentage, and how many classes you need or can miss to stay on target.</p>
+
+      <form id="attendanceForm" class="space-y-6" novalidate>
+        <div>
+          <label for="total" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Total classes conducted</label>
+          <input type="number" id="total" min="1" step="1" inputmode="numeric" placeholder="e.g. 40" class="field w-full px-4 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label for="attended" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Classes attended</label>
+          <input type="number" id="attended" min="0" step="1" inputmode="numeric" placeholder="e.g. 28" class="field w-full px-4 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label for="target" class="block text-xs uppercase tracking-wider text-[var(--muted)] mb-2">Target attendance (%)</label>
+          <input type="number" id="target" min="1" max="100" step="any" inputmode="decimal" value="75" class="field w-full px-4 py-2.5 text-sm" />
+        </div>
+        <button type="submit" class="btn-primary w-full px-8 py-3 text-sm">Calculate attendance</button>
+      </form>
+
+      <div id="result" class="mt-6" aria-live="polite"></div>
+
+      <section class="prose-lite mt-16" aria-labelledby="explain-title">
+        <h2 id="explain-title">How attendance percentage is calculated</h2>
+        <p>Attendance percentage is the share of conducted classes that you attended:</p>
+        <p class="formula">Attendance % = (Classes attended ÷ Classes conducted) × 100</p>
+        <p>For example, attending 28 of 40 classes gives (28 ÷ 40) × 100 = <strong>70%</strong>.</p>
+
+        <h3>Classes needed to reach your target</h3>
+        <p>If you are below target, the calculator assumes you attend every upcoming class. With a target of T%, the number of extra classes you need is:</p>
+        <p class="formula">Classes needed = ⌈ (T × Conducted − 100 × Attended) ÷ (100 − T) ⌉</p>
+        <p>With 28 attended out of 40 and a 75% target: (75 × 40 − 100 × 28) ÷ 25 = 8. After 8 more classes you will have attended 36 of 48, which is exactly 75%.</p>
+
+        <h3>Classes you can miss</h3>
+        <p>If you are above target, the calculator finds how many further classes you can skip while staying at or above it:</p>
+        <p class="formula">Classes you can miss = ⌊ (100 × Attended ÷ T) − Conducted ⌋</p>
+        <p>With 36 attended out of 40: (100 × 36 ÷ 75) − 40 = 8. Missing 8 more classes leaves you at 36 of 48, or 75%.</p>
+
+        <h3>Good to know</h3>
+        <ul>
+          <li>The numbers are rounded in your favour: you always get a whole number of classes that is enough to reach the target.</li>
+          <li>Many universities ask for 75%, but some use 70% or 80%. Check your department rules, and ask whether medical or duty leave can be condoned.</li>
+          <li>Want the full walkthrough? Read the <a href="guides.html#attendance-formula">attendance formula guide</a>.</li>
+        </ul>
+      </section>
+
+      <section id="related-tools" class="mt-16" aria-label="More student tools"></section>
+    </div>
+  </main>
+
+  <!-- Footer (rendered by assets/js/site.js) -->
+  <footer id="site-footer" class="border-t border-[var(--line)] text-[var(--muted)] text-xs"></footer>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/calc-utils.js"></script>
+  <script src="assets/js/attendance.js"></script>
+</body>
+</html>
