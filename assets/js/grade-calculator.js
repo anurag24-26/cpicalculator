@@ -99,7 +99,7 @@ function runGrade(e) {
   var g = gradeFor(r.pct, scaleKey);
   var notes = [];
   if (Math.abs(totalWeight - 100) > 0.001) notes.push('Your weights add up to ' + Calc.fmt(totalWeight, totalWeight % 1 ? 1 : 0) + '%, not 100%, so the result is scaled to the weight entered.');
-  if (pending) notes.push(pending + ' component' + (pending > 1 ? 's have' : ' has') + ' no score yet and ' + (pending > 1 ? 'are' : 'is') + ' not counted — this is your standing so far.');
+  if (pending) notes.push(pending + ' component' + (pending > 1 ? 's have' : ' has') + ' no score yet and ' + (pending > 1 ? 'are' : 'is') + ' not counted - this is your standing so far.');
   notes.push('Grade bands differ between universities; treat the grade as an estimate.');
 
   var details = [

@@ -89,7 +89,7 @@
     return '' +
       '<div class="container mx-auto max-w-3xl px-6 pt-8 pb-5 text-center">' +
         '<nav aria-label="Footer navigation" class="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-6">' + links + '</nav>' +
-        '<p>© 2025–' + new Date().getFullYear() + ' CPI Calculator — Built by Anurag Tripathi' + badge + '</p>' +
+        '<p>© 2025–' + new Date().getFullYear() + ' CPI Calculator - Built by Anurag Tripathi' + badge + '</p>' +
       '</div>';
   }
 
